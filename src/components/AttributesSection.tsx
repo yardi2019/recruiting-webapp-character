@@ -7,15 +7,16 @@ interface AttributeProps {
   decrementValue: (key: string) => void;
 }
 
+const MAX_ATTRiBUTE = 70
+
 const AttributesSection: React.FC<AttributeProps> = ({ attributes, incrementValue, decrementValue }) => {
-  console.log("In component",attributes)
-  // const totalAttributes = Object.values(attributes).reduce((total, a) => {
-  //   return total += a;
-  // })
-  // if (totalAttributes > 70) {
-  //   window.alert("Total attributes > 70")
-  // }
-  // console.log("Total att", totalAttributes)
+  console.log("In attributes component",attributes)
+  const totalAttributes = Object.values(attributes).reduce((total, a) => {
+    return total += a;
+  })
+  if (totalAttributes > MAX_ATTRiBUTE) {
+    window.alert("Total attributes > 70")
+  }
   
   return (
     <div>
