@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const [attribute, setAttribute] = useState<Record<string, number>>(createInitialAttributes);
   const [classes, setClasses] = useState<Record<Class, Attributes>>(CLASS_LIST)
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
-  // const [skills, setSKills] = useState<any>(SKILL_LIST)
+  const [skills, setSKills] = useState<any>(SKILL_LIST)
   
   const incrementValue = (key: string) => {
     setAttribute((prev) => ({
@@ -69,7 +69,7 @@ const App: React.FC = () => {
             handleClassClick = {handleClassClick}
             isMatchingClass = {isMatchingClass}
           />
-          {/* <SkillsList skillsList={skills}          /> */}
+          <SkillsList skillsList={skills}          />
         </div>
       </section>
     </div>
