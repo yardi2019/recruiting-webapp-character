@@ -21,8 +21,8 @@ const createInitialAttributes = (): Record<string, number> => {
 
 const App: React.FC = () => {
   const [attribute, setAttribute] = useState<Record<string, number>>(createInitialAttributes);
-  // const [classes, setClasses] = useState<Record<Class, Attributes>>(CLASS_LIST)
-  // const [selectedClass, setSelectedClass] = useState<string | null>(null);
+  const [classes, setClasses] = useState<Record<Class, Attributes>>(CLASS_LIST)
+  const [selectedClass, setSelectedClass] = useState<string | null>(null);
   // const [skills, setSKills] = useState<any>(SKILL_LIST)
   
   const incrementValue = (key: string) => {
@@ -40,16 +40,16 @@ const App: React.FC = () => {
   };
 
   //Class selection
-  // const handleClassClick = (className: string) => {
-  //   setSelectedClass((prev) => (prev === className ? null : className));
-  // };
+  const handleClassClick = (className: string) => {
+    setSelectedClass((prev) => (prev === className ? null : className));
+  };
 
   //Check for matching class attributes
-  // const isMatchingClass = (classAttributes: Attributes): boolean => {
-  //   return Object.entries(classAttributes).every(
-  //     ([key, value]) => attribute[key as keyof Attributes] >= value
-  //   );
-  // };
+  const isMatchingClass = (classAttributes: Attributes): boolean => {
+    return Object.entries(classAttributes).every(
+      ([key, value]) => attribute[key as keyof Attributes] >= value
+    );
+  };
 
   return (
     <div className="App">
@@ -63,13 +63,13 @@ const App: React.FC = () => {
             incrementValue={incrementValue}
             decrementValue={decrementValue}
           />
-          {/* <Classes
+          <Classes
             classes = { classes }
             selectedClass = { selectedClass }
             handleClassClick = {handleClassClick}
             isMatchingClass = {isMatchingClass}
           />
-          <SkillsList skillsList={skills}          /> */}
+          {/* <SkillsList skillsList={skills}          /> */}
         </div>
       </section>
     </div>
